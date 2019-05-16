@@ -49,10 +49,12 @@ public class BrickContainer : MonoBehaviour
     {
         Destroy(brick.gameObject);
         bricks.Remove(brick);
-        if (bricks.Count == 0 && OnAllBricksDeadEvent != null)
-            OnAllBricksDeadEvent.Invoke();
         if (gameModel != null)
+        {
             gameModel.ChangeScore(brick.Score);
+            if (bricks.Count == 0)
+                gameModel.OnGameWon();
+        }
         else
             Debug.LogWarning("LevelController.BrickContainer: Game model not set. Testing?");
     }

@@ -25,6 +25,6 @@ public class HorizontalPaddle : BasePaddle
         Vector2 reflection = Vector2.Reflect(ballDirection, collision.contacts[0].normal);
         Vector2 normalizedVelocity = currentVelocity.normalized;
 
-        return (reflection + normalizedVelocity).normalized * 0.5f;
+        return (reflection + normalizedVelocity).normalized;
     }
 }

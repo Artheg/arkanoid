@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 282519b037494a3a7a016452adacf99e, type: 3}
   m_Name: MainGameConfig
   m_EditorClassIdentifier: 
-  bricksDescendPeriod: 0.4
+  bricksDescendPeriod: 5
