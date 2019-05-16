@@ -11,8 +11,6 @@ public class GameController : MonoBehaviour
     public UnityEvent OnGameStartEvent;
     public UnityEvent OnGameEndEvent;
     public UnityEvent OnDescendTickEvent;
-    public Transform BadWall;
-    public GameObject LevelPrefab;
     public BaseTransformController PlayerInputController;
     
     [SerializeField]
@@ -20,10 +18,7 @@ public class GameController : MonoBehaviour
 
     private float timeSinceLastDescend;
     private Coroutine tickCoroutine;
-    private BallController ballController;
     
-    private BrickContainer brickContainer;
-
     public bool IsGameInProgress { get; private set; }
 
     void Start()

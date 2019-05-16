@@ -44,7 +44,6 @@ public class StatusPanel : MonoBehaviour, IController
         while(elapsedTime < time)
         {
             transform.position = Vector3.Lerp(transform.position, destination, elapsedTime / time);
-            print("YIELDING " + transform.position + destination);
             elapsedTime += Time.deltaTime;
             yield return null;
         }

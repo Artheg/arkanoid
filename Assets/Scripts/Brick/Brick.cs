@@ -30,7 +30,6 @@ public class Brick : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) 
     {
-        print("brick collision enter " + other.transform);
         if (other.transform.Equals(target))
         {
             if (OnTargetReachedAction != null)

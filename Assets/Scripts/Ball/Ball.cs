@@ -34,7 +34,6 @@ public class Ball : MonoBehaviour
     internal void StopMoving()
     {
         rb2d.velocity = Vector2.zero;
-        print("Ball has stopped moving");
     }
 
     internal void StartMoving(Vector2 direction)

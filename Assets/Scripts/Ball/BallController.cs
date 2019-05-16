@@ -49,7 +49,6 @@ public class BallController : MonoBehaviour, IController
 
     public void OnGameEnd()
     {
-        print("Ball controller: on game end");
         currentBall.OnBallCollisionEnter -= OnBallCollides;
         currentBall.StopMoving();
         currentBall.ResetPosition();
