@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class BallSpawner : MonoBehaviour
 {
-    public UnityAction<Ball> OnBallSpawnDone;
+    public event Action<Ball> OnBallSpawnDone;
 
     [SerializeField]
     private List<GameObject> ballPrefabs = new List<GameObject>();

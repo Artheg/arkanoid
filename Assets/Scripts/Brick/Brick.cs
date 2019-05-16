@@ -10,6 +10,7 @@ public class Brick : MonoBehaviour
     public Action<Brick> OnDeathAction;
     public Action<Brick> OnTargetReachedAction;
     public BrickType Type;
+    public Grid grid;
 
     [SerializeField]
     private int totalHP;

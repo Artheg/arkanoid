@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(BallSpawner))]
 public class BallController : MonoBehaviour, IController
 {
-    public UnityAction<Ball> OnBallSpawned;
+    public event Action<Ball> OnBallSpawned;
 
     private Ball currentBall;
     private BallSpawner ballSpawner;

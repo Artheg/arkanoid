@@ -7,7 +7,7 @@ public class LevelController : MonoBehaviour, IController
 {
     public UnityEvent OnTargetReachedEvent;
     public GameObject LevelPrefab;
-    public Grid LevelContainer;
+    public Transform LevelContainer;
 
     public Transform EnemyTarget;
     private BrickContainer currentLevel;
@@ -17,7 +17,7 @@ public class LevelController : MonoBehaviour, IController
 
     public void OnGameStart()
     {
-        GameObject level = Instantiate(LevelPrefab, LevelContainer.transform);
+        GameObject level = Instantiate(LevelPrefab, LevelContainer);
         currentLevel = level.GetComponent<BrickContainer>();
         currentLevel.InitBricks(EnemyTarget);
         currentLevel.SetModel(gameModel);
