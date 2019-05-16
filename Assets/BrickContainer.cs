@@ -9,6 +9,7 @@ public class BrickContainer : MonoBehaviour
     public UnityEvent OnAllBricksDeadEvent;
     public UnityEvent OnTargetReachedEvent;
     private List<Brick> bricks;
+    private GameModel gameModel;
 
     public void InitBricks(Transform target)
     {
@@ -18,15 +19,25 @@ public class BrickContainer : MonoBehaviour
         for (int i = 0; i < bricks.Count; i++)
         {
             Brick brick = bricks[i];
+            brick.SetTarget(target);
             brick.OnTargetReachedAction += OnTargetReached;
             brick.OnDeathAction += OnBrickDead;
         }
+    }
+
+    public void SetModel(GameModel gameModel = null)
+    {
+        this.gameModel = gameModel;
     }
 
     private void OnTargetReached(Brick brick)
     {
         if (OnTargetReachedEvent != null)
             OnTargetReachedEvent.Invoke();
+        if (gameModel != null)
+            gameModel.OnGameLost();
+        else
+            Debug.LogWarning("LevelController.BrickContainer: Game model not set. Testing?");
     }
 
     public void Descend()
@@ -40,5 +51,9 @@ public class BrickContainer : MonoBehaviour
         bricks.Remove(brick);
         if (bricks.Count == 0 && OnAllBricksDeadEvent != null)
             OnAllBricksDeadEvent.Invoke();
+        if (gameModel != null)
+            gameModel.ChangeScore(brick.Score);
+        else
+            Debug.LogWarning("LevelController.BrickContainer: Game model not set. Testing?");
     }
 }

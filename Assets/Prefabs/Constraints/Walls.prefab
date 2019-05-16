@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4435309601391126}
   - component: {fileID: 212476412050098744}
-  - component: {fileID: 114143232948480402}
+  - component: {fileID: 7658392582929629592}
   - component: {fileID: 61381257243846726}
   m_Layer: 0
   m_Name: GreenTop
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &114143232948480402
+--- !u!114 &7658392582929629592
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,18 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnHit:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: EndGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!61 &61381257243846726
@@ -179,7 +168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4433498985808982}
   - component: {fileID: 212360894080836894}
-  - component: {fileID: 114713723623206712}
+  - component: {fileID: 445311127604477641}
   - component: {fileID: 61224631584278966}
   m_Layer: 0
   m_Name: RedBot
@@ -250,7 +239,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &114713723623206712
+--- !u!114 &445311127604477641
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -264,18 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnHit:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: EndGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!61 &61224631584278966
@@ -314,7 +292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4448082923903616}
   - component: {fileID: 212944325785720172}
-  - component: {fileID: 114035912175065232}
+  - component: {fileID: 12434914674123959}
   - component: {fileID: 61254634837674338}
   m_Layer: 0
   m_Name: GreenLeft
@@ -385,7 +363,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &114035912175065232
+--- !u!114 &12434914674123959
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -438,7 +416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4964755132461960}
   - component: {fileID: 212027095872239356}
-  - component: {fileID: 114402136083268262}
+  - component: {fileID: 6426354802639147199}
   - component: {fileID: 61535365319900170}
   m_Layer: 0
   m_Name: GreenRight
@@ -509,7 +487,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &114402136083268262
+--- !u!114 &6426354802639147199
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

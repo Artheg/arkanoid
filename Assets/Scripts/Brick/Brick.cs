@@ -9,12 +9,14 @@ public class Brick : MonoBehaviour
 {
     public Action<Brick> OnDeathAction;
     public Action<Brick> OnTargetReachedAction;
+    public BrickType Type;
 
     [SerializeField]
     private int totalHP;
     private int currentHP;
 
     private Transform target;
+    public int Score = 100;
 
     private void Start()
     {
@@ -28,6 +30,7 @@ public class Brick : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) 
     {
+        print("brick collision enter " + other.transform);
         if (other.transform.Equals(target))
         {
             if (OnTargetReachedAction != null)
@@ -35,6 +38,8 @@ public class Brick : MonoBehaviour
             return;
         }
 
+        if (other.gameObject.GetComponent<Ball>() == null)
+            return;
 
         currentHP -= 1;
         if (currentHP <= 0 && OnDeathAction != null)

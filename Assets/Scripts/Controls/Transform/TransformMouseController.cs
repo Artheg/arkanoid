@@ -16,7 +16,7 @@ public class TransformMouseController : BaseTransformController
     }
 
     private void HandleMouseDrag()
-    {
+    { 
         var newPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         newPos.y = controlledTransform.transform.position.y;
         newPos.z = 0;

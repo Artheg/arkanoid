@@ -4,13 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(BallSpawner))]
 public class GameController : MonoBehaviour
 {
-    public UnityEvent OnDescendTick;
+    [SerializeField]
+    private GameModel gameModel;
+    public UnityEvent OnGameStartEvent;
+    public UnityEvent OnGameEndEvent;
+    public UnityEvent OnDescendTickEvent;
     public Transform BadWall;
     public GameObject LevelPrefab;
-    private GameObject level;
+    public BaseTransformController PlayerInputController;
     
     [SerializeField]
     private GameConfig gameConfig;
@@ -27,52 +30,54 @@ public class GameController : MonoBehaviour
     {
         if (gameConfig == null)
             throw new UnityException("Trying to start the game with unassigned Game Config");
-        ballController = new BallController(GetComponent<BallSpawner>());
+        if (PlayerInputController == null)
+            throw new UnityException("Trying to start the game with unassigned Player Input Controller");
 
-        TryStartGame();
+        PlayerInputController.AllowControls(false);
     }
 
     public void TryStartGame()
     {
         if (IsGameInProgress)
             return;
-        ballController.OnGameStart();
         IsGameInProgress = true;
-
-        brickContainer = Instantiate(LevelPrefab).GetComponent<BrickContainer>();
-        brickContainer.InitBricks(BadWall);
+        if (OnGameStartEvent != null)
+            OnGameStartEvent.Invoke();
         
-        OnDescendTick.AddListener(brickContainer.Descend);
-        
+        gameModel.SetSecondsToDescend(gameConfig.BricksDescendPeriod);
+        PlayerInputController.AllowControls(true);        
     }
 
-    public void EndGame()
+    public void TryEndGame()
     {
-        OnDescendTick.RemoveListener(level.GetComponent<BrickContainer>().Descend);
-
-        ballController.OnGameEnd();
-        IsGameInProgress = false;
-        Destroy(level);
-    }
-
-    void FixedUpdate()
-    {
-        TryProcessTick();
-    }
-
-    private void TryProcessTick()
-    {
-        if (tickCoroutine != null)
+        if (!IsGameInProgress)
             return;
-        tickCoroutine = StartCoroutine(ProcessTick());
+        IsGameInProgress = false;
+        
+        if (OnGameEndEvent != null)
+            OnGameEndEvent.Invoke();
+        
+        gameModel.SetSecondsToDescend(0f);
+        PlayerInputController.AllowControls(false);                
     }
 
-    private IEnumerator ProcessTick()
+    void Update()
     {
-        yield return new WaitForSeconds(gameConfig.BricksDescendPeriod);
-        if (OnDescendTick != null)
-            OnDescendTick.Invoke();
-        tickCoroutine = null;
+        DecrementDescendTick();
+    }
 
+    private void DecrementDescendTick()
+    {
+        if (!IsGameInProgress)
+            return;
+        float timeLeft = gameModel.DescendSecondsLeft;
+        if (timeLeft < 0)
+        {
+            gameModel.SetSecondsToDescend(gameConfig.BricksDescendPeriod);
+            OnDescendTickEvent.Invoke();
+            return;
+        }
+
+        gameModel.SetSecondsToDescend(timeLeft - Time.deltaTime);
     }
 }

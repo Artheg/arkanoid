@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4535357366630702}
-  - component: {fileID: 114006920046379604}
   - component: {fileID: 5258421120626424801}
   m_Layer: 0
   m_Name: GameController
@@ -32,22 +31,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114006920046379604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1016542664963138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c06c80a281441904e8db0a20863f2bbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ballPrefabs:
-  - {fileID: 1639717332221778, guid: 5893c7c10375a094fa248f20edcedc1a, type: 3}
-  - {fileID: 1352706835851798, guid: d90bc1cc495ec104ba1a2185d258ad18, type: 3}
-  - {fileID: 1810074779454796, guid: a586c663d0adc76408a22ce845225131, type: 3}
 --- !u!114 &5258421120626424801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,4 +43,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65298afd96bd419b0992563ead5a63e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnGameStartEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnGameEndEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnDescendTick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  BadWall: {fileID: 0}
+  LevelPrefab: {fileID: 0}
   gameConfig: {fileID: 11400000, guid: 4483f085787b7911db717927915f28df, type: 2}

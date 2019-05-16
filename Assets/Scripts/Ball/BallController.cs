@@ -2,29 +2,35 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class BallController
+[RequireComponent(typeof(BallSpawner))]
+public class BallController : MonoBehaviour, IController
 {
     public UnityAction<Ball> OnBallSpawned;
 
     private Ball currentBall;
     private BallSpawner ballSpawner;
 
+    [SerializeField]
+    private GameModel gameModel;
+
     private Dictionary<Collision2D, BasePaddle> paddles;
     private List<Collision2D> regularCollisions;
 
-    public BallController(BallSpawner ballSpawner)
+    void Start()
     {
-        this.ballSpawner = ballSpawner;
+        this.ballSpawner = GetComponent<BallSpawner>();
         ballSpawner.OnBallSpawnDone += OnBallSpawnDone;
 
         paddles = new Dictionary<Collision2D, BasePaddle>();
         regularCollisions = new List<Collision2D>();
+
+        if (!gameModel)
+            Debug.LogWarning("BallController: GameModel is not set. Looks like you're testing something, eh?");
     }
 
     public void OnGameStart()
     {
         ballSpawner.SpawnRandomBall();
-      
     }
 
     private void OnBallSpawnDone(Ball ball)
@@ -32,7 +38,7 @@ public class BallController
         currentBall = ball;
 
         var x = Random.Range(-1f, 1f);
-        Vector2 direction = new Vector2(x, -1f);
+        Vector2 direction = new Vector2(0, -1f);
 
         currentBall.OnBallCollisionEnter += OnBallCollides;
         currentBall.StartMoving(direction);
@@ -43,6 +49,7 @@ public class BallController
 
     public void OnGameEnd()
     {
+        print("Ball controller: on game end");
         currentBall.OnBallCollisionEnter -= OnBallCollides;
         currentBall.StopMoving();
         currentBall.ResetPosition();
