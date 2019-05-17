@@ -7,20 +7,23 @@ public class LevelController : MonoBehaviour, IGameListener
 {
     [SerializeField]
     private UnityEvent onTargetReachedEvent;
+    
     [SerializeField]
     private GameObject levelPrefab;
+
     [SerializeField]
     private Transform levelContainer;
 
     [SerializeField]
     private Transform enemyTarget;
-    private BrickContainer currentLevel;
 
     [SerializeField]
     private GameModel gameModel;
+
     [SerializeField]
     private LevelGenerator levelGenerator;
 
+    private BrickContainer currentLevel;
 
     public void OnGameStart()
     {

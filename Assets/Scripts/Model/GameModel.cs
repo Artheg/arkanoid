@@ -12,10 +12,9 @@ public class GameModel : MonoBehaviour
     public UnityEvent OnGameLostEvent;
     public UnityEvent OnGameWonEvent;
 
-    public GameStatus Status {get; private set; }
     public int Score {get; private set; }
     public float DescendSecondsLeft {get; private set; }
-    
+
     [SerializeField]
     private GameConfig gameConfig;
     
@@ -41,11 +40,6 @@ public class GameModel : MonoBehaviour
             OnScoreChangeEvent.Invoke();
     }
 
-    public void SetSatus(GameStatus status)
-    {
-        Status = status;
-    }
-
     public void OnGameWon()
     {
         ChangeScore(gameConfig.ScoreForRound);
@@ -56,7 +50,6 @@ public class GameModel : MonoBehaviour
     public void OnGameLost()
     {
         ResetScore();
-        Status = GameStatus.FAIL;
         if (OnGameLostEvent != null)
             OnGameLostEvent.Invoke();
     }

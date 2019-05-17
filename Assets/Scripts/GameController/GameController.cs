@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
     public UnityEvent OnGameStartEvent;
     public UnityEvent OnGameEndEvent;
     public UnityEvent OnDescendTickEvent;
-    
+
     [SerializeField]
     public BaseTransformController playerInputController;
     
@@ -21,7 +21,6 @@ public class GameController : MonoBehaviour
 
     private float timeSinceLastDescend;
     private Coroutine tickCoroutine;
-    
     private bool isGameInProgress;
 
     void Start()
