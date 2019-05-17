@@ -5,16 +5,15 @@ using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(BallSpawner))]
-public class BallController : MonoBehaviour, IController
+public class BallController : MonoBehaviour, IGameListener
 {
     public event Action<Ball> OnBallSpawned;
-
-    private Ball currentBall;
-    private BallSpawner ballSpawner;
 
     [SerializeField]
     private GameModel gameModel;
 
+    private Ball currentBall;
+    private BallSpawner ballSpawner;
     private Dictionary<Collision2D, BasePaddle> paddles;
     private List<Collision2D> regularCollisions;
 

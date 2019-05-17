@@ -6,54 +6,57 @@ using UnityEngine.Events;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField]
-    private GameModel gameModel;
     public UnityEvent OnGameStartEvent;
     public UnityEvent OnGameEndEvent;
     public UnityEvent OnDescendTickEvent;
-    public BaseTransformController PlayerInputController;
     
+    [SerializeField]
+    public BaseTransformController playerInputController;
+    
+    [SerializeField]
+    private GameModel gameModel;
+
     [SerializeField]
     private GameConfig gameConfig;
 
     private float timeSinceLastDescend;
     private Coroutine tickCoroutine;
     
-    public bool IsGameInProgress { get; private set; }
+    private bool isGameInProgress;
 
     void Start()
     {
         if (gameConfig == null)
             throw new UnityException("Trying to start the game with unassigned Game Config");
-        if (PlayerInputController == null)
+        if (playerInputController == null)
             throw new UnityException("Trying to start the game with unassigned Player Input Controller");
 
-        PlayerInputController.AllowControls(false);
+        playerInputController.AllowControls(false);
     }
 
     public void TryStartGame()
     {
-        if (IsGameInProgress)
+        if (isGameInProgress)
             return;
-        IsGameInProgress = true;
+        isGameInProgress = true;
         if (OnGameStartEvent != null)
             OnGameStartEvent.Invoke();
         
         gameModel.SetSecondsToDescend(gameConfig.BricksDescendPeriod);
-        PlayerInputController.AllowControls(true);        
+        playerInputController.AllowControls(true);        
     }
 
     public void TryEndGame()
     {
-        if (!IsGameInProgress)
+        if (!isGameInProgress)
             return;
-        IsGameInProgress = false;
+        isGameInProgress = false;
         
         if (OnGameEndEvent != null)
             OnGameEndEvent.Invoke();
         
         gameModel.SetSecondsToDescend(0f);
-        PlayerInputController.AllowControls(false);                
+        playerInputController.AllowControls(false);                
     }
 
     void Update()
@@ -63,7 +66,7 @@ public class GameController : MonoBehaviour
 
     private void DecrementDescendTick()
     {
-        if (!IsGameInProgress)
+        if (!isGameInProgress)
             return;
         float timeLeft = gameModel.DescendSecondsLeft;
         if (timeLeft < 0)

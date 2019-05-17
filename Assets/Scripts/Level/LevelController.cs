@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class LevelController : MonoBehaviour, IController
+public class LevelController : MonoBehaviour, IGameListener
 {
     [SerializeField]
     private UnityEvent onTargetReachedEvent;

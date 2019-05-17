@@ -6,6 +6,7 @@ public class LevelGenerator : MonoBehaviour
 {
     [SerializeField]
     private Vector2 levelSize;
+    
     [SerializeField]
     private List<GameObject> brickPrefabs = new List<GameObject>();
 

@@ -5,26 +5,31 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(CanvasRenderer))]
-public class StatusPanel : MonoBehaviour, IController
+public class StatusPanel : MonoBehaviour, IGameListener
 {
-    public GameModel gameModel;
-    public Text DescendTimerTF;
-    public Text ScoreTF;
+    [SerializeField]
+    private GameModel gameModel;
+
+    [SerializeField]
+    private Text descendTimerTF;
+
+    [SerializeField]
+    private Text scoreTF;
 
     private void Start() 
     {
         gameModel.OnScoreChangeEvent.AddListener(UpdateScoreTF);
-        ScoreTF.text = "Score: 0"; 
+        scoreTF.text = "Score: 0"; 
     }
 
     public void UpdateScoreTF()
     {
-        ScoreTF.text = "Score: " + gameModel.Score;
+        scoreTF.text = "Score: " + gameModel.Score;
     }
 
     public void UpdateDescendTimerTF()
     {
-        DescendTimerTF.text = "Next descend: " + string.Format("{0:N2}", gameModel.DescendSecondsLeft);
+        descendTimerTF.text = "Next descend: " + string.Format("{0:N2}", gameModel.DescendSecondsLeft);
     }
 
     public void OnGameStart()

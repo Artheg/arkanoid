@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour, IController
+public class MainMenu : MonoBehaviour, IGameListener
 {
-    public Button StartButton;
-    
     public void OnGameStart()
     {
         gameObject.SetActive(false);

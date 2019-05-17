@@ -2,9 +2,7 @@
 using UnityEngine;
 using UnityEngine.Networking;
 
-// Ball requires the GameObject to have a CircleCollider2D component
 [RequireComponent(typeof(CircleCollider2D))]
-// Ball requires the GameObject to have a RigidBody2D component
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
 public class Ball : MonoBehaviour

@@ -4,26 +4,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TopPanel : MonoBehaviour, IController
+public class TopPanel : MonoBehaviour, IGameListener
 {
-    public GameModel gameModel;
-    public Text ResultTF;
+    [SerializeField]
+    private GameModel gameModel;
+
+    [SerializeField]
+    private Text resultTF;
 
     private void Start() 
     {
         gameModel.OnGameLostEvent.AddListener(OnGameLost);   
         gameModel.OnGameWonEvent.AddListener(OnGameWon);
-        ResultTF.text = "ARKANOID";
+        resultTF.text = "ARKANOID";
     }
 
     private void OnGameWon()
     {
-        ResultTF.text = "YOU WIN";
+        resultTF.text = "YOU WIN";
     }
 
     private void OnGameLost()
     {
-        ResultTF.text = "YOU LOSE";
+        resultTF.text = "YOU LOSE";
     }
 
     public void OnGameStart()

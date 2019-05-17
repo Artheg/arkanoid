@@ -120,8 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f19c0e658c246b0cab8ec295a93cc5dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Config: {fileID: 11400000, guid: ed5ba7c7bdf27ca8a99d0cdc990389df, type: 2}
-  renderer: {fileID: 4955969424094697341}
+  config: {fileID: 11400000, guid: ed5ba7c7bdf27ca8a99d0cdc990389df, type: 2}
 --- !u!50 &-1966266907213077903
 Rigidbody2D:
   serializedVersion: 4

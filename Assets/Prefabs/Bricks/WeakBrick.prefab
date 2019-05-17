@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7569492906951395188}
   - component: {fileID: -5458424908821916430}
   m_Layer: 0
-  m_Name: PurpleBrick
+  m_Name: WeakBrick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,8 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f19c0e658c246b0cab8ec295a93cc5dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Config: {fileID: 11400000, guid: 3782d039611436bd4a59b18de75f6b26, type: 2}
-  renderer: {fileID: 3852496579722151033}
+  config: {fileID: 11400000, guid: 3782d039611436bd4a59b18de75f6b26, type: 2}
 --- !u!50 &-5458424908821916430
 Rigidbody2D:
   serializedVersion: 4

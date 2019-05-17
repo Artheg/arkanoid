@@ -10,7 +10,9 @@ public class Brick : MonoBehaviour
 {
     public event Action<Brick> OnDeathAction;
     public event Action<Brick> OnTargetReachedAction;
-    public BrickConfig Config;
+    
+    [SerializeField]
+    private BrickConfig config;
 
     private int currentHP;
 
@@ -18,15 +20,15 @@ public class Brick : MonoBehaviour
 
     private void Start()
     {
-        currentHP = Config.HP;
+        currentHP = config.HP;
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();
-        renderer.color = Config.Color;
+        renderer.color = config.Color;
         renderer.sortingLayerName = SortingLayerName.GAMEPLAY;
     }
 
     public int Score
     {
-        get { return Config.Score; }
+        get { return config.Score; }
     }
 
     public void SetTarget(Transform target)

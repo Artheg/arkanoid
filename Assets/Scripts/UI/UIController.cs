@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
-    private List<IController> UIList = new List<IController>();
+    private List<IGameListener> UIList = new List<IGameListener>();
+    
     private void Start()
     {
-        GetComponentsInChildren<IController>(UIList);
+        GetComponentsInChildren<IGameListener>(UIList);
     }
 
     public void OnGameStart()

@@ -6,7 +6,6 @@ using UnityEngine.Events;
 public class GameModel : MonoBehaviour
 {
 
-    public GameConfig gameConfig;
     public UnityEvent OnDescendSecondsChangeEvent;
     public UnityEvent OnScoreChangeEvent;
 
@@ -15,8 +14,10 @@ public class GameModel : MonoBehaviour
 
     public GameStatus Status {get; private set; }
     public int Score {get; private set; }
-    public bool IsGameInProgress {get; private set; }
     public float DescendSecondsLeft {get; private set; }
+    
+    [SerializeField]
+    private GameConfig gameConfig;
     
     public void SetSecondsToDescend(float value)
     {
