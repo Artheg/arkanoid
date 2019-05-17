@@ -4,24 +4,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[ExecuteInEditMode]
 [RequireComponent(typeof(BoxCollider2D))]
 public class Brick : MonoBehaviour
 {
-    public Action<Brick> OnDeathAction;
-    public Action<Brick> OnTargetReachedAction;
-    public BrickType Type;
-    public Grid grid;
+    public event Action<Brick> OnDeathAction;
+    public event Action<Brick> OnTargetReachedAction;
+    public BrickConfig Config;
 
-    [SerializeField]
-    private int totalHP;
     private int currentHP;
 
     private Transform target;
-    public int Score = 100;
 
     private void Start()
     {
-        currentHP = totalHP;
+        currentHP = Config.HP;
+        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+        renderer.color = Config.Color;
+        renderer.sortingLayerName = SortingLayerName.GAMEPLAY;
+    }
+
+    public int Score
+    {
+        get { return Config.Score; }
     }
 
     public void SetTarget(Transform target)
@@ -29,7 +34,7 @@ public class Brick : MonoBehaviour
         this.target = target;
     }
 
-    private void OnCollisionEnter2D(Collision2D other) 
+    private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.transform.Equals(target))
         {
@@ -37,11 +42,11 @@ public class Brick : MonoBehaviour
                 OnTargetReachedAction(this);
             return;
         }
-
-        if (other.gameObject.GetComponent<Ball>() == null)
+        Ball ballComponent = other.gameObject.GetComponent<Ball>();
+        if (ballComponent == null)
             return;
 
-        currentHP -= 1;
+        currentHP -= ballComponent.AttackPower; //Can be replaced with Ball
         if (currentHP <= 0 && OnDeathAction != null)
             OnDeathAction(this);
 

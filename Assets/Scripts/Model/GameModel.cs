@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class GameModel : MonoBehaviour
 {
+
+    public GameConfig gameConfig;
     public UnityEvent OnDescendSecondsChangeEvent;
     public UnityEvent OnScoreChangeEvent;
 
@@ -25,6 +27,7 @@ public class GameModel : MonoBehaviour
 
     public void ChangeScore(int delta)
     {
+        print("changing score");
         Score += delta;
         if (OnScoreChangeEvent != null)
             OnScoreChangeEvent.Invoke();
@@ -44,9 +47,9 @@ public class GameModel : MonoBehaviour
 
     public void OnGameWon()
     {
-        ChangeScore(100);
+        ChangeScore(gameConfig.ScoreForRound);
         if (OnGameWonEvent != null)
-            OnGameLostEvent.Invoke();
+            OnGameWonEvent.Invoke();
     }
 
     public void OnGameLost()

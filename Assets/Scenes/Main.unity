@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 11308823}
   - component: {fileID: 11308824}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: "GameModel\x1A"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08aa624849664445bae234834e14c661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameConfig: {fileID: 11400000, guid: 4483f085787b7911db717927915f28df, type: 2}
   OnDescendSecondsChangeEvent:
     m_PersistentCalls:
       m_Calls:
@@ -239,7 +240,8 @@ GameObject:
   - component: {fileID: 391397747}
   - component: {fileID: 391397748}
   - component: {fileID: 391397749}
-  m_Layer: 0
+  - component: {fileID: 391397750}
+  m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,9 +296,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -29494215
+  m_SortingLayer: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1ddca3c3c9277641f84eaf32b14fd9f4, type: 3}
   m_Color: {r: 0.9410491, g: 1, b: 0.16037738, a: 1}
   m_FlipX: 0
@@ -347,6 +349,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4, y: 0.4}
   m_EdgeRadius: 0
+--- !u!114 &391397750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391397745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a5e09866eb5bcf4f818971ac3b18f45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &437000231
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,7 +372,7 @@ GameObject:
   - component: {fileID: 437000232}
   - component: {fileID: 437000233}
   - component: {fileID: 437000234}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BallController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -513,6 +527,10 @@ PrefabInstance:
     - target: {fileID: 1016542664963138, guid: 5522c53c645d53c4d80988bc8dd57159, type: 3}
       propertyPath: m_Name
       value: GameController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016542664963138, guid: 5522c53c645d53c4d80988bc8dd57159, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5258421120626424801, guid: 5522c53c645d53c4d80988bc8dd57159,
         type: 3}
@@ -901,6 +919,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Walls
       objectReference: {fileID: 0}
+    - target: {fileID: 1444437908709120, guid: 685b01bb7f9faff46aa5de0600911e3d, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4655241071361644, guid: 685b01bb7f9faff46aa5de0600911e3d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -955,11 +977,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4433498985808982, guid: 685b01bb7f9faff46aa5de0600911e3d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.76
+      value: -4.81
       objectReference: {fileID: 0}
     - target: {fileID: 4433498985808982, guid: 685b01bb7f9faff46aa5de0600911e3d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.03
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 4433498985808982, guid: 685b01bb7f9faff46aa5de0600911e3d, type: 3}
       propertyPath: m_LocalScale.x
@@ -976,6 +998,16 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212476412050098744, guid: 685b01bb7f9faff46aa5de0600911e3d,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -29494215
+      objectReference: {fileID: 0}
+    - target: {fileID: 212476412050098744, guid: 685b01bb7f9faff46aa5de0600911e3d,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 212360894080836894, guid: 685b01bb7f9faff46aa5de0600911e3d,
         type: 3}
       propertyPath: m_Sprite
@@ -986,6 +1018,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212360894080836894, guid: 685b01bb7f9faff46aa5de0600911e3d,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -29494215
+      objectReference: {fileID: 0}
+    - target: {fileID: 212360894080836894, guid: 685b01bb7f9faff46aa5de0600911e3d,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 212944325785720172, guid: 685b01bb7f9faff46aa5de0600911e3d,
         type: 3}
@@ -1003,6 +1045,16 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212944325785720172, guid: 685b01bb7f9faff46aa5de0600911e3d,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -29494215
+      objectReference: {fileID: 0}
+    - target: {fileID: 212944325785720172, guid: 685b01bb7f9faff46aa5de0600911e3d,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 212027095872239356, guid: 685b01bb7f9faff46aa5de0600911e3d,
         type: 3}
       propertyPath: m_Sprite
@@ -1013,6 +1065,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212027095872239356, guid: 685b01bb7f9faff46aa5de0600911e3d,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -29494215
+      objectReference: {fileID: 0}
+    - target: {fileID: 212027095872239356, guid: 685b01bb7f9faff46aa5de0600911e3d,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 61224631584278966, guid: 685b01bb7f9faff46aa5de0600911e3d,
         type: 3}
@@ -1049,6 +1111,22 @@ PrefabInstance:
       propertyPath: OnHit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1483151610092780, guid: 685b01bb7f9faff46aa5de0600911e3d, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269095137911046, guid: 685b01bb7f9faff46aa5de0600911e3d, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1571133961199468, guid: 685b01bb7f9faff46aa5de0600911e3d, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723582728333432, guid: 685b01bb7f9faff46aa5de0600911e3d, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 685b01bb7f9faff46aa5de0600911e3d, type: 3}
 --- !u!1 &1002363850
@@ -1061,7 +1139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1002363852}
   - component: {fileID: 1002363851}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1102,8 +1180,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1608837827
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5828546ed00103fc2a52adeb9ee2908e, type: 3}
   m_Color: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 1}
@@ -1344,7 +1422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 044ef63481886213c9e1979505cfc026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  main: {fileID: 1002363851}
+  Guide: {fileID: 1002363851}
 --- !u!1 &1500120263
 GameObject:
   m_ObjectHideFlags: 0
@@ -1848,15 +1926,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1863520640}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LevelContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1863520640
-Transform:
+--- !u!224 &1863520640
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1869,6 +1947,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -6.25, y: 3.5}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1980150173
 GameObject:
   m_ObjectHideFlags: 0
@@ -2072,7 +2155,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2113651225}
   - component: {fileID: 2113651226}
-  m_Layer: 0
+  - component: {fileID: 2113651227}
+  m_Layer: 9
   m_Name: LevelController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2105,7 +2189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df11d826d7975c34fbdd5785de43c5d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnTargetReachedEvent:
+  onTargetReachedEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11308824}
@@ -2121,8 +2205,27 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  LevelPrefab: {fileID: 1126727620545926591, guid: be085a1955fd3f1b8bd2ce6d957e7d3a,
+  levelPrefab: {fileID: 1126727620545926591, guid: be085a1955fd3f1b8bd2ce6d957e7d3a,
     type: 3}
-  LevelContainer: {fileID: 1863520640}
-  EnemyTarget: {fileID: 1981544725}
+  levelContainer: {fileID: 1863520640}
+  enemyTarget: {fileID: 1981544725}
   gameModel: {fileID: 11308824}
+  levelGenerator: {fileID: 2113651227}
+--- !u!114 &2113651227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113651224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 447d9d1d69fef8322adf25de8c4dc265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelSize: {x: 6, y: 2}
+  brickPrefabs:
+  - {fileID: 4960798838824910876, guid: 2435db26a01ee92558873878af7f5d46, type: 3}
+  - {fileID: 1833759577520626264, guid: ca6f0cdd7b271df0186092aceb3f673f, type: 3}
+  - {fileID: 3848816908190602008, guid: 83ed91d195582316484ba3d66f9fc24e, type: 3}
+  brickXSize: 2.5

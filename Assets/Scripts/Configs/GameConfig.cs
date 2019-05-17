@@ -5,13 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New_GameConfig", menuName = "GameConfig")]
 public class GameConfig : ScriptableObject
 {
-    [SerializeField]
-    private float bricksDescendPeriod = 0.0f;
-    public float BricksDescendPeriod
-    {
-        get
-        {
-            return bricksDescendPeriod;
-        }
-    }
+    public float BricksDescendPeriod = 0.0f;
+    public int ScoreForRound = 100;
+
 }

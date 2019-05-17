@@ -5,23 +5,30 @@ using UnityEngine.Events;
 
 public class LevelController : MonoBehaviour, IController
 {
-    public UnityEvent OnTargetReachedEvent;
-    public GameObject LevelPrefab;
-    public Transform LevelContainer;
+    [SerializeField]
+    private UnityEvent onTargetReachedEvent;
+    [SerializeField]
+    private GameObject levelPrefab;
+    [SerializeField]
+    private Transform levelContainer;
 
-    public Transform EnemyTarget;
+    [SerializeField]
+    private Transform enemyTarget;
     private BrickContainer currentLevel;
 
     [SerializeField]
     private GameModel gameModel;
+    [SerializeField]
+    private LevelGenerator levelGenerator;
+
 
     public void OnGameStart()
     {
-        GameObject level = Instantiate(LevelPrefab, LevelContainer);
+        GameObject level = (levelGenerator != null) ? levelGenerator.GenerateLevel(levelContainer) : Instantiate(levelPrefab, levelContainer);
         currentLevel = level.GetComponent<BrickContainer>();
-        currentLevel.InitBricks(EnemyTarget);
+        currentLevel.InitBricks(enemyTarget);
         currentLevel.SetModel(gameModel);
-        currentLevel.OnTargetReachedEvent.AddListener(OnTargetReachedEvent.Invoke);
+        currentLevel.OnTargetReachedAction += onTargetReachedEvent.Invoke;
     }
 
     public void OnGameEnd()

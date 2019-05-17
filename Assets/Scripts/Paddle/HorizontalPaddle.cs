@@ -13,7 +13,7 @@ public class HorizontalPaddle : BasePaddle
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         var currentPos = new Vector2(transform.position.x, transform.position.y);
         currentVelocity = (currentPos - previousPos) / Time.deltaTime;
@@ -23,8 +23,10 @@ public class HorizontalPaddle : BasePaddle
     public override Vector2 CalculateBallDirection(Collision2D collision, Vector2 ballDirection)
     {
         Vector2 reflection = Vector2.Reflect(ballDirection, collision.contacts[0].normal);
-        Vector2 normalizedVelocity = currentVelocity.normalized;
+        Vector2 normalizedVelocity = -currentVelocity.normalized;
 
-        return (reflection + normalizedVelocity).normalized;
+        Vector2 result = new Vector2(normalizedVelocity.x, reflection.y);
+        print(result);
+        return result;
     }
 }

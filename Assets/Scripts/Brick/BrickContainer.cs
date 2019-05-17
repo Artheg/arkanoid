@@ -6,8 +6,8 @@ using UnityEngine.Events;
 
 public class BrickContainer : MonoBehaviour
 {
-    public UnityEvent OnAllBricksDeadEvent;
-    public UnityEvent OnTargetReachedEvent;
+    public event Action OnAllBricksDeadAction;
+    public event Action OnTargetReachedAction;
     private List<Brick> bricks;
     private GameModel gameModel;
 
@@ -32,8 +32,8 @@ public class BrickContainer : MonoBehaviour
 
     private void OnTargetReached(Brick brick)
     {
-        if (OnTargetReachedEvent != null)
-            OnTargetReachedEvent.Invoke();
+        if (OnTargetReachedAction != null)
+            OnTargetReachedAction.Invoke();
         if (gameModel != null)
             gameModel.OnGameLost();
         else
