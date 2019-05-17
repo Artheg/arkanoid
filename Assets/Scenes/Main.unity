@@ -2214,7 +2214,7 @@ MonoBehaviour:
   levelContainer: {fileID: 1863520640}
   enemyTarget: {fileID: 1981544725}
   gameModel: {fileID: 11308824}
-  levelGenerator: {fileID: 0}
+  levelGenerator: {fileID: 2113651227}
 --- !u!114 &2113651227
 MonoBehaviour:
   m_ObjectHideFlags: 0
