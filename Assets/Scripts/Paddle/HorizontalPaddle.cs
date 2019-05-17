@@ -26,7 +26,6 @@ public class HorizontalPaddle : BasePaddle
         Vector2 normalizedVelocity = -currentVelocity.normalized;
 
         Vector2 result = new Vector2(normalizedVelocity.x, reflection.y);
-        print(result);
         return result;
     }
 }

@@ -27,7 +27,6 @@ public class GameModel : MonoBehaviour
 
     public void ChangeScore(int delta)
     {
-        print("changing score");
         Score += delta;
         if (OnScoreChangeEvent != null)
             OnScoreChangeEvent.Invoke();
