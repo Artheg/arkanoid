@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
     public UnityEvent OnDescendTickEvent;
 
     [SerializeField]
-    public BaseTransformController playerInputController;
+    private BaseTransformController playerInputController;
     
     [SerializeField]
     private GameModel gameModel;

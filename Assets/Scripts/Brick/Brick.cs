@@ -48,7 +48,7 @@ public class Brick : MonoBehaviour
         if (ballComponent == null)
             return;
 
-        currentHP -= ballComponent.AttackPower; //Can be replaced with Ball
+        currentHP -= ballComponent.AttackPower;
         if (currentHP <= 0 && OnDeathAction != null)
             OnDeathAction(this);
 
